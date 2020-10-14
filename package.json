@@ -9,6 +9,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -28,6 +33,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.0",
+    "husky": "^4.3.0",
     "prettier": "^2.1.2"
   }
 }
