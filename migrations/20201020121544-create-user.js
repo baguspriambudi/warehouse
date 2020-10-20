@@ -1,33 +1,34 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable strict */
 // eslint-disable-next-line strict
-
+// eslint-disable-next-line lines-around-directive
 'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Users', {
       id: {
-        type: Sequelize.INTEGER(11),
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER,
       },
       username: {
-        type: Sequelize.STRING(35),
-        allowNull: false,
-        unique: true,
+        type: Sequelize.STRING,
       },
-      passwd: {
-        type: Sequelize.STRING(20),
-        allowNull: false,
+      password: {
+        type: Sequelize.STRING,
       },
-      createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE,
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
     });
   },
-
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('Users');
   },
 };

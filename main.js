@@ -2,17 +2,17 @@ const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 
-const PORT = process.env.PORT || 3000;
-const app = express();
+const routes = require('./router');
 
+const app = express();
 dotenv.config();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 if (process.env.NODE_ENV !== 'test') app.use(morgan('combined'));
 
 // DB Connection
-require('./database/connection');
 
 app.get('/', (req, res) => {
   res.status(200).json({
@@ -23,10 +23,8 @@ app.get('/', (req, res) => {
   });
 });
 
-const routeApiV1 = express.Router();
-routeApiV1.use('/auth/user', require('./router/user_route'));
-
-app.use('/api/v1', routeApiV1);
+// routes
+app.use('/api/v1', routes);
 
 app.use((req, res, next) => {
   const error = new Error('not found');
