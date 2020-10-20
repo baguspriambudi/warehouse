@@ -6,4 +6,4 @@ Content-Type: application/json
     "password" :"user"
 }
 
-GET  http://localhost:3000/
+# GET  http://localhost:3000/api/v1
