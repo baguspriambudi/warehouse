@@ -22,6 +22,8 @@ app.get('/', (req, res) => {
 });
 
 const routeApiV1 = express.Router();
+routeApiV1.use('/auth/user', require('./router/user_route'));
+
 app.use('/api/v1', routeApiV1);
 
 app.use((req, res, next) => {

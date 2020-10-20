@@ -1,0 +1,9 @@
+# POST http://localhost:3000/api/v1/auth/user
+# Content-Type: application/json
+
+# {
+#     "username" :"user",
+#     "password" :"user"
+# }
+
+GET  http://localhost:3000/
