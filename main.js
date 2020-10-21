@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 if (process.env.NODE_ENV !== 'test') app.use(morgan('combined'));
 
 // DB Connection
+require('./database/connection');
 
 app.get('/', (req, res) => {
   res.status(200).json({

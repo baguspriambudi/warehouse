@@ -1,9 +1,10 @@
 const Sequelize = require('sequelize');
+const db = require('../config/config.json');
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-  host: '127.0.0.1',
-  dialect: 'mysql',
-  operatorsAliases: 0,
+const sequelize = new Sequelize(db.development.database, db.development.username, db.development.password, {
+  host: db.development.host,
+  dialect: db.development.dialect,
+  operatorsAliases: db.development.operatorsAliases,
 });
 sequelize
   .authenticate()
