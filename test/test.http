@@ -2,8 +2,8 @@ POST http://localhost:3000/api/v1/user/create
 Content-Type: application/json
 
 {
-    "username" :"lEle",
-    "password" :"user"
+    "username" :"nina",
+    "password" :"nina"
 }
 ###
 GET  http://localhost:3000/api/v1
