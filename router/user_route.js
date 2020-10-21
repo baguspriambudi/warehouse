@@ -1,9 +1,9 @@
 const express = require('express');
 
-const router = express.Router();
-
 const userController = require('../controller/user');
+const schema = require('../middleware/Schema');
 
-router.post('/create', userController.createUser);
+const router = express.Router();
+router.post('/create', schema.midUser, userController.createUser);
 
 module.exports = router;

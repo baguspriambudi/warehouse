@@ -15,6 +15,9 @@ if (process.env.NODE_ENV !== 'test') app.use(morgan('combined'));
 // DB Connection
 require('./database/connection');
 
+// routes
+app.use('/api/v1', routes);
+
 app.get('/', (req, res) => {
   res.status(200).json({
     status: 200,
@@ -23,9 +26,6 @@ app.get('/', (req, res) => {
     timestamp: new Date(),
   });
 });
-
-// routes
-app.use('/api/v1', routes);
 
 app.use((req, res, next) => {
   const error = new Error('not found');
