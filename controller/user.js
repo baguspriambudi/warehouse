@@ -17,3 +17,12 @@ exports.createUser = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.findUser = async (req, res, next) => {
+  try {
+    const user = await User.findAll({});
+    httpOkResponse(res, 'success find users', user);
+  } catch (error) {
+    next(error);
+  }
+};
