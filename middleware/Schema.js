@@ -3,8 +3,9 @@ const { httpValidasiDataErrorRespone } = require('../helper/http_respone');
 
 exports.midUser = (req, res, next) => {
   const schema = Joi.object({
-    username: Joi.string().required(),
+    email: Joi.string().required(),
     password: Joi.string().required(),
+    method: Joi.string().valid('google', 'facebook'),
   }).options({ abortEarly: false });
 
   const { error } = schema.validate(req.body);

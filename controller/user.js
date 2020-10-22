@@ -5,13 +5,13 @@ const { httpOkResponse, httpAuthenticationFailed } = require('../helper/http_res
 
 exports.createUser = async (req, res, next) => {
   try {
-    const { username, password } = req.body;
-    const findUser = await User.findOne({ where: { username: username } });
+    const { email, password } = req.body;
+    const findUser = await User.findOne({ where: { email: email } });
     if (findUser) {
       return httpAuthenticationFailed(res, 'username already use');
     }
     const hashPassword = bcrypt.hashSync(password, 10);
-    const user = await User.create({ username: username, password: hashPassword });
+    const user = await User.create({ email: email, password: hashPassword });
     httpOkResponse(res, 'success created user', user);
   } catch (error) {
     next(error);
