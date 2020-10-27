@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 
 const routes = require('./router');
+require('./config/passport_setup');
 
 const app = express();
 dotenv.config();
