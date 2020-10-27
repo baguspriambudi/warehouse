@@ -1,6 +1,12 @@
 const passport = require('passport');
 const googleStrategy = require('passport-google-oauth20');
 
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
 passport.use(
   'googleToken',
   // eslint-disable-next-line new-cap
