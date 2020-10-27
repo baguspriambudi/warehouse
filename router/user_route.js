@@ -8,6 +8,10 @@ const router = express.Router();
 router.post('/create', schema.midUser, userController.createUser);
 router.get('/find', userController.findUser);
 router.post('/login', userController.login);
-router.post('/google', passport.authenticate('googleToken', { session: false }));
+router.get('/google', passport.authenticate('google', { scope: 'profile' }));
+router.get('/google/redirect', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
+  res.redirect('/');
+  //   res.end('Logged');
+});
 
 module.exports = router;
