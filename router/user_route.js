@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/create', schema.midUser, userController.createUser);
 router.get('/find', userController.findUser);
 router.post('/login', userController.login);
-router.get('/google', passport.authenticate('google', { scope: 'profile' }));
+router.get('/google', passport.authenticate('google', { scope: 'profile', session: false }));
 router.get('/google/callback', passport.authenticate('google'), (req, res) => {
   res.send('Logged');
 });

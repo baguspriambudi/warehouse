@@ -17,12 +17,13 @@ passport.use(
       callbackURL: 'http://localhost:3000/api/v1/user/google/callback',
     },
     // eslint-disable-next-line no-unused-vars
-    async (accesToken, refreshToken, profile, done) => {
+    async (accesstoken, refreshtoken, profile, done) => {
       // passport callback function
-      console.log(accesToken);
-      console.log(refreshToken);
+      console.log(accesstoken);
+      console.log(refreshtoken);
       console.log(profile);
-      done(null, profile);
+      // eslint-disable-next-line no-undef
+      done();
     },
   ),
 );
