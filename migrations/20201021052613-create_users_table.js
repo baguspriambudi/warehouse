@@ -6,10 +6,17 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('users', {
-      id: { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
-      email: { type: Sequelize.STRING, allowNull: false },
-      password: { type: Sequelize.STRING, allowNull: false },
-      method: { type: Sequelize.ENUM('google', 'facebook') },
+      provider: { type: Sequelize.ENUM('google', 'local'), allowNull: false },
+      // local: {
+      //   id: { type: Sequelize.STRING, autoIncrement: true, primaryKey: true },
+      //   email: { type: Sequelize.STRING },
+      //   password: { type: Sequelize.STRING },
+      // },
+      // google: {
+      //   socialId: { type: Sequelize.STRING, primaryKey: true },
+      //   email: { type: Sequelize.STRING },
+      //   avatar: { type: Sequelize.STRING },
+      // },
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
     });

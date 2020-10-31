@@ -2,8 +2,15 @@ const Sequelize = require('sequelize');
 const sequelize = require('../database/connection');
 
 module.exports = sequelize.define('User', {
-  id: { type: Sequelize.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
-  email: { type: Sequelize.STRING, allowNull: false },
-  password: { type: Sequelize.STRING, allowNull: false },
-  method: Sequelize.ENUM('google', 'facebook'),
+  provider: { type: Sequelize.ENUM('google', 'local'), allowNull: false },
+  local: {
+    id: { type: Sequelize.STRING, autoIncrement: true, primaryKey: true },
+    email: { type: Sequelize.STRING },
+    password: { type: Sequelize.STRING },
+  },
+  google: {
+    socialId: { type: Sequelize.STRING, primaryKey: true },
+    email: { type: Sequelize.STRING },
+    avatar: { type: Sequelize.STRING },
+  },
 });
