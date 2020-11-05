@@ -2,10 +2,10 @@ const express = require('express');
 const passport = require('passport');
 
 const userController = require('../controller/user');
-const schema = require('../middleware/schema');
+// const schema = require('../middleware/schema');
 
 const router = express.Router();
-router.post('/create', schema.midUser, userController.createUser);
+router.post('/create', userController.createUser);
 router.get('/find', userController.findUser);
 router.post('/login', userController.login);
 router.get('/google', passport.authenticate('google', { scope: 'profile', session: false }));
