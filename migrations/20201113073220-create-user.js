@@ -18,10 +18,6 @@ module.exports = {
       providerId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'Providers',
-          key: 'id',
-        },
       },
       socialId: {
         type: Sequelize.INTEGER,

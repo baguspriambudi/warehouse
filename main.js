@@ -1,16 +1,12 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
-const passport = require('passport');
 
 const routes = require('./router');
 
 const app = express();
 dotenv.config();
 const PORT = process.env.PORT || 3000;
-
-app.use(passport.initialize());
-require('./config/passport_setup');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

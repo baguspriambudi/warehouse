@@ -2,7 +2,7 @@
 // const JWT = require('jsonwebtoken');
 
 // const JWTScret = 'hdfshusdhifuy844h4yh';
-// const User = require('../models/User');
+// const User = require('../models/user');
 // const { httpOkResponse, httpAuthenticationFailed, httpNotFound } = require('../helper/http_respone');
 
 // exports.createUser = async (req, res, next) => {
