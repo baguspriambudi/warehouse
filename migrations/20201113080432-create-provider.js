@@ -1,8 +1,3 @@
-/* eslint-disable strict */
-// eslint-disable-next-line strict
-
-'use strict';
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Providers', {
@@ -12,8 +7,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      provider: {
+      name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
