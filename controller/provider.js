@@ -1,4 +1,4 @@
-const Provider = require('../models/provider');
+const Provider = require('../models/Provider');
 const { httpOkResponse, httpAuthenticationFailed } = require('../helper/http_respone');
 
 exports.createProvider = async (req, res, next) => {
