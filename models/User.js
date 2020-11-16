@@ -35,8 +35,8 @@ const sequelize = require('../database/connection');
 const User = sequelize.define('User', {
   email: DataTypes.STRING,
   name: DataTypes.STRING,
-  providerId: DataTypes.INTEGER,
-  socialId: DataTypes.INTEGER,
+  providerId: { type: DataTypes.INTEGER, references: { model: 'provider', key: 'id' } },
+  socialId: DataTypes.STRING,
 });
 User.associate = (models) => {
   User.belongsTo(models.Provider, { foreignKey: 'id', as: 'provider' });
