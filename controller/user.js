@@ -21,7 +21,7 @@ exports.createUser = async (req, res, next) => {
 
 exports.findUser = async (req, res, next) => {
   try {
-    const user = await User.findAll({ include: ['providers'] });
+    const user = await User.findAll({ include: 'Provider' });
     httpOkResponse(res, 'success find users', user);
   } catch (error) {
     next(error);

@@ -32,14 +32,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database/connection');
 
-const User = sequelize.define('User', {
+module.exports = sequelize.define('User', {
   email: DataTypes.STRING,
   name: DataTypes.STRING,
   // providerId: { type: DataTypes.INTEGER },
   socialId: DataTypes.STRING,
 });
-User.associate = (models) => {
-  User.belongsTo(models.Provider, { foreignKey: 'providerId', as: 'provider' });
-};
-
-module.exports = User;
