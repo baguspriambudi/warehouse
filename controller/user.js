@@ -3,7 +3,6 @@
 
 // const JWTScret = 'hdfshusdhifuy844h4yh';
 const User = require('../models/User');
-const Provider = require('../models/Provider');
 const { httpOkResponse, httpAuthenticationFailed } = require('../helper/http_respone');
 
 exports.createUser = async (req, res, next) => {
@@ -22,7 +21,7 @@ exports.createUser = async (req, res, next) => {
 
 exports.findUser = async (req, res, next) => {
   try {
-    const user = await User.findAll({ include: [Provider] });
+    const user = await User.findAll({ include: ['providers'] });
     httpOkResponse(res, 'success find users', user);
   } catch (error) {
     next(error);

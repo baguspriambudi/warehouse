@@ -35,10 +35,11 @@ const sequelize = require('../database/connection');
 const User = sequelize.define('User', {
   email: DataTypes.STRING,
   name: DataTypes.STRING,
-  providerId: { type: DataTypes.INTEGER, references: { model: 'provider', key: 'id' } },
+  // providerId: { type: DataTypes.INTEGER },
   socialId: DataTypes.STRING,
 });
 User.associate = (models) => {
-  User.belongsTo(models.Provider, { foreignKey: 'id', as: 'provider' });
+  User.belongsTo(models.Provider, { foreignKey: 'providerId', as: 'provider' });
 };
+
 module.exports = User;

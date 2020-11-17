@@ -6,6 +6,9 @@ const Provider = sequelize.define('Provider', {
 });
 
 Provider.associate = (models) => {
-  Provider.hasMany(models.User, { foreignKey: 'id', sourceKey: 'providerId' });
+  Provider.hasMany(models.User, {
+    as: 'user',
+  });
 };
+
 module.exports = Provider;
