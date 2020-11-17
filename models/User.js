@@ -35,6 +35,6 @@ const sequelize = require('../database/connection');
 module.exports = sequelize.define('User', {
   email: DataTypes.STRING,
   name: DataTypes.STRING,
-  // providerId: { type: DataTypes.INTEGER },
+  providerId: DataTypes.INTEGER,
   socialId: DataTypes.STRING,
 });

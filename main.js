@@ -14,6 +14,7 @@ if (process.env.NODE_ENV !== 'test') app.use(morgan('combined'));
 
 // DB Connection
 require('./database/connection');
+// DB Associate
 require('./models/associations');
 // routes
 app.use('/api/v1', routes);
