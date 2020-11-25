@@ -1,10 +1,10 @@
 const express = require('express');
 
 const userController = require('../controller/user');
-// const schema = require('../middleware/schema');
+const schema = require('../middleware/schema');
 
 const router = express.Router();
-router.post('/create', userController.createUser);
+router.post('/create', schema.midUser, userController.createUser);
 router.get('/view', userController.findUser);
 
 module.exports = router;
